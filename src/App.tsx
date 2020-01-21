@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { User, UserRepos } from "./getInfoFromGithub";
+import { Spinner } from "./components/Spiner";
+import { LandingPage } from "./Pages/LandingPage";
+import { Footer } from "./components/Footer";
 
-const App: React.FC = () => {
+export const App = () => {
+  const [userloading, setUserLoading] = useState(false);
+  const [reposloading, setReposLoading] = useState(false);
+  const user = User().then(() => setUserLoading(true));
+  const userRepos = UserRepos().then(() => {
+    setReposLoading(true);
+  });
+  console.log(user, userRepos);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        {userloading && reposloading ? (
+          <LandingPage user={user} userRepos={userRepos} />
+        ) : (
+          <Spinner />
+        )}
+      </div>
+      <Footer />
+    </>
   );
-}
+};
 
 export default App;
