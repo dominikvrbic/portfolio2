@@ -8,16 +8,20 @@ import { Footer } from "./components/Footer";
 export const App = () => {
   const [userloading, setUserLoading] = useState(false);
   const [reposloading, setReposLoading] = useState(false);
-  const user = User().then(() => setUserLoading(true));
-  const userRepos = UserRepos().then(() => {
-    setReposLoading(true);
+  const user = User().then(res => {
+    setUserLoading(true);
+    return res;
   });
-  console.log(user, userRepos);
+  const repos = UserRepos().then(res => {
+    setReposLoading(true);
+    return res;
+  });
+
   return (
     <>
       <div className="App">
         {userloading && reposloading ? (
-          <LandingPage user={user} userRepos={userRepos} />
+          <LandingPage user={user} userRepos={repos} />
         ) : (
           <Spinner />
         )}
@@ -26,5 +30,3 @@ export const App = () => {
     </>
   );
 };
-
-export default App;
