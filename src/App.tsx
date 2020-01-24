@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useAsync } from "react-use";
 import "./App.css";
 import { User, UserRepos } from "./getInfoFromGithub";
 import { Spinner } from "./components/Spiner";
@@ -6,25 +7,18 @@ import { LandingPage } from "./Pages/LandingPage";
 import { Footer } from "./components/Footer";
 
 export const App = () => {
-  const [loading, setLoading] = useState(true);
-  const [userData, setUserData] = useState(null);
-  const [repoData, setRepoData] = useState(null);
-
-  useEffect(() => {
-    Promise.all([
-      User(),
-      UserRepos()
-    ]).then(([user, repos]) => {
-      setUserData(user);
-      setRepoData(repos);
-      setLoading(false);
-    });
+  const { value } = useAsync(async () => {
+    const [userData, repoData] = await Promise.all([User(), UserRepos()]);
+    return { userData, repoData };
   }, []);
+
+  const userData = value?.userData;
+  const repoData = value?.repoData;
 
   return (
     <>
       <div className="App">
-        {loading ? (
+        {!userData || !repoData ? (
           <Spinner />
         ) : (
           <LandingPage user={userData} userRepos={repoData} />
