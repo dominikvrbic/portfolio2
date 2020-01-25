@@ -5,11 +5,9 @@ const footerStyle = css`
   display: flex;
   align-items: center;
   background-color: black;
-  height: 3vw;
+  height: 4vw;
   width: 100%;
-  font-size: 2vw;
-
-  bottom: 0px;
+  font-size: 1.8vw;
   justify-content: center;
 `;
 

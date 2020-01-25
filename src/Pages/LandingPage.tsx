@@ -1,5 +1,8 @@
 import React from "react";
 import { Header } from "../components/Header";
+import { Projects } from "./../components/Projects";
+import { AboutMe } from "../components/AboutMe";
+import { ContactMe } from "../components/ContactMe";
 
 interface ILandingPage {
   user: any;
@@ -12,19 +15,9 @@ export const LandingPage = (props: ILandingPage) => {
   return (
     <>
       <Header />
-      {/* <h3>Moja ruzna faca: </h3>
-      <img src={user.avatar_url} alt="Moja ruzna faca"></img>
-      <h3>Moja sranja:</h3>
-      {userRepos.map((repo: any) => {
-        return (
-          <React.Fragment key={repo.id}>
-            <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
-              {repo.name}
-            </a>
-            <br />
-          </React.Fragment>
-        );
-      })} */}
+      <Projects repos={userRepos} />
+      <AboutMe user={user} />
+      <ContactMe />
     </>
   );
 };
