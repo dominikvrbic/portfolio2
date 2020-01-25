@@ -5,10 +5,10 @@ const footerStyle = css`
   display: flex;
   align-items: center;
   background-color: black;
-  height: 56px;
+  height: 3vw;
   width: 100%;
-  font-size: 13px;
-  line-height: 15px;
+  font-size: 2vw;
+
   bottom: 0px;
   justify-content: center;
 `;
@@ -25,7 +25,6 @@ export const Footer = () => {
       <div className={footerTextStyle}>
         Copyright © {new Date().getFullYear()} · Dominik Vrbic
       </div>
-      )}
     </div>
   );
 };
