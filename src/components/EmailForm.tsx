@@ -2,11 +2,15 @@ import React from "react";
 import emailjs from "emailjs-com";
 
 export const EmailForm = () => {
-  const templateParams = {
+  let templateParams = {
     name: "aa",
-    notes: "aaaa"
+    email: "",
+    message: ""
   };
   const sendEmail = (e: any) => {
+    // templateParams.name =
+    // templateParams.email =
+    // templateParams.message =
     e.preventDefault();
     emailjs
       .send(
@@ -28,12 +32,12 @@ export const EmailForm = () => {
     <form className="contact-form" onSubmit={sendEmail}>
       <input type="hidden" name="contact_number" />
       <label>Name</label>
-      <input type="text" name="name" />
+      <input type="text" name="name" value="name" />
       <label>Email</label>
-      <input type="email" name="email" />
+      <input type="email" name="email" value="email" />
       <label>Message</label>
       <textarea name="message" />
-      <input type="submit" value="Send" />
+      <input type="submit" value="message" />
     </form>
   );
 };
