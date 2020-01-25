@@ -4,3 +4,8 @@ export enum MediaBreakpoint {
   LG = 992,
   XL = 1200
 }
+
+export enum ButtonEnum {
+  WHITE = "white",
+  BLACK = "black"
+}

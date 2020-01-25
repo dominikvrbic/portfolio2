@@ -15,7 +15,7 @@ export const LandingPage = (props: ILandingPage) => {
   return (
     <>
       <Header />
-      <Projects repos={userRepos} />
+      <Projects userRepos={userRepos} />
       <AboutMe user={user} />
       <ContactMe />
     </>

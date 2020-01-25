@@ -1,21 +1,19 @@
 import React from "react";
 
 interface IProjectsProps {
-  repos: any;
+  userRepos: any;
 }
 export const Projects = (props: IProjectsProps) => {
+  const { userRepos } = props;
   return (
     <div>
-      {/* {userRepos.map((repo: any) => {
-    return (
-      <React.Fragment key={repo.id}>
-        <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
-          {repo.name}
-        </a>
-        <br />
-      </React.Fragment>
-    );
-  })} */}
+      {userRepos.map((repo: any) => (
+        <div key={repo.id}>
+          <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+            {repo.name}
+          </a>
+        </div>
+      ))}
     </div>
   );
 };
