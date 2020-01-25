@@ -4,7 +4,6 @@ import "./App.css";
 import { User, UserRepos } from "./getInfoFromGithub";
 import { Spinner } from "./components/Spiner";
 import { LandingPage } from "./Pages/LandingPage";
-import { Footer } from "./components/Footer";
 
 export const App = () => {
   const { value } = useAsync(async () => {
@@ -24,7 +23,6 @@ export const App = () => {
           <LandingPage user={userData} userRepos={repoData} />
         )}
       </div>
-      <Footer />
     </>
   );
 };

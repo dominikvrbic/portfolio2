@@ -5,6 +5,7 @@ import { AboutMe } from "../components/AboutMe";
 import { ContactMe } from "../components/ContactMe";
 import { Button } from "../components/Button";
 import { ButtonEnum } from "../types/enums";
+import { Footer } from "../components/Footer";
 
 interface ILandingPage {
   user: any;
@@ -21,6 +22,7 @@ export const LandingPage = (props: ILandingPage) => {
       <Projects userRepos={userRepos} />
       <AboutMe user={user} />
       <ContactMe />
+      <Footer />
     </>
   );
 };
