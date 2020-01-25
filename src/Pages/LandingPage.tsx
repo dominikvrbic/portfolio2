@@ -3,6 +3,8 @@ import { Header } from "../components/Header";
 import { Projects } from "./../components/Projects";
 import { AboutMe } from "../components/AboutMe";
 import { ContactMe } from "../components/ContactMe";
+import { Button } from "../components/Button";
+import { ButtonEnum } from "../types/enums";
 
 interface ILandingPage {
   user: any;
@@ -15,6 +17,7 @@ export const LandingPage = (props: ILandingPage) => {
   return (
     <>
       <Header />
+      <Button style={ButtonEnum.WHITE} text={"srbi"} />
       <Projects userRepos={userRepos} />
       <AboutMe user={user} />
       <ContactMe />
