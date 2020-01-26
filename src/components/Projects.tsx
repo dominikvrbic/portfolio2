@@ -1,18 +1,19 @@
 import React from "react";
-
+import { Project } from "./Project";
+import { css } from "emotion";
+const projectsStyle = css`
+  display: flex;
+  align-items: center;
+`;
 interface IProjectsProps {
   userRepos: any;
 }
 export const Projects = (props: IProjectsProps) => {
   const { userRepos } = props;
   return (
-    <div>
+    <div className={projectsStyle}>
       {userRepos.map((repo: any) => (
-        <div key={repo.id}>
-          <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
-            {repo.name}
-          </a>
-        </div>
+        <Project repo={repo} />
       ))}
     </div>
   );

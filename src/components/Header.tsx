@@ -4,7 +4,7 @@ import img from "../assets/header1.jpg";
 
 const headerStyle = css`
   background-size: 100%;
-  min-height: 20vh;
+  min-height: 30vh;
   background-repeat: no-repeat;
   width: 100%;
 `;
