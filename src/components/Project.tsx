@@ -18,7 +18,7 @@ const hoverStyle = css`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 2vh;
+  padding: 3vh;
 `;
 const buttonsStyle = css`
   align-self: flex-end;
@@ -33,6 +33,10 @@ const topStyle = css`
 `;
 const elementWidth = css`
   width: 50%;
+  text-align: left;
+`;
+const descriptionStyle = css`
+  padding-top: 4vh;
 `;
 interface IProjectProps {
   repo: any;
@@ -51,13 +55,23 @@ export const Project = (props: IProjectProps) => {
       {hover && (
         <div className={hoverStyle}>
           <div className={topStyle}>
-            <div className={elementWidth}>{repo.name}</div>
-            <div>{repo.description}</div>
+            <div className={elementWidth}>
+              Project:{"\n"}
+              {repo.name}
+            </div>
+            <div className={descriptionStyle}>
+              Description:{"\n"}
+              {repo.description}
+            </div>
           </div>
           <div className={buttonsStyle}>
-            <Button text={"Go to Github"} style={ButtonEnum.WHITE} />
+            <a target="_blank" href={repo.html_url}>
+              <Button text={"Go to Github"} style={ButtonEnum.WHITE} />
+            </a>
             {repo.homepage && (
-              <Button text={"Go to page"} style={ButtonEnum.WHITE} />
+              <a target="_blank" href={repo.homepage}>
+                <Button text={"Go to page"} style={ButtonEnum.WHITE} />
+              </a>
             )}
           </div>
         </div>
