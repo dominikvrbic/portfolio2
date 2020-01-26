@@ -10,7 +10,8 @@ const expandedStyle = css`
   border-radius: 6px;
 `;
 const collapsibleStyle = css`
-  border: 1px solid #6ac1b0;
+  background: #ffffff;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
   border-radius: 6px;
 `;
 
@@ -28,7 +29,11 @@ export const ContactMe = () => {
         onOpen={() => setIsClosed(false)}
         onClose={() => setIsClosed(true)}
         className={collapsibleStyle}
-        trigger={<div>otvori</div>}
+        trigger={
+          <Typography gutterBottom variant="h5" component="h2">
+            Click Here!!!
+          </Typography>
+        }
       >
         <EmailForm />
       </Collapsible>

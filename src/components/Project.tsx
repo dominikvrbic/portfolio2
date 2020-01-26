@@ -35,7 +35,7 @@ export const Project = (props: IProjectProps) => {
     display: flex;
     background-image: url(${img});
     width: ${sm || md ? "100vw" : "45vw"};
-    height: 40vh;
+    height: 25vh;
     background-size: 100%;
     background-repeat: no-repeat;
     background-position-x: 50%;
@@ -49,7 +49,7 @@ export const Project = (props: IProjectProps) => {
     display: flex;
     flex-direction: column;
     width: ${sm || md ? "100vw" : "45vw"};
-    height: 40vh;
+    height: 25vh;
   `;
   const setOn = () => {
     sethover(true);

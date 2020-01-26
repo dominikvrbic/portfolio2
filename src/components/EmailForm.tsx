@@ -1,14 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import emailjs from "emailjs-com";
-import TextField from "@material-ui/core/TextField";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { TextField } from "../components/TextField";
 import { Button } from "@material-ui/core";
-import { css } from "emotion";
-import { useForm } from "react-hook-form";
-const nameEmailStyle = css`
-  display: flex;
-  flex-direction: column;
-`;
+import { useForm, FormContext } from "react-hook-form";
+import * as yup from "yup";
+
 const sendEmail = (templateParams: any) => {
   emailjs
     .send(
@@ -28,91 +24,44 @@ const sendEmail = (templateParams: any) => {
 };
 
 export const EmailForm = () => {
-  const { register, handleSubmit, errors } = useForm();
+  const form = useForm({
+    mode: "onChange",
+    reValidateMode: "onChange",
+    defaultValues: {
+      Email: "",
+      Name: "",
+      Message: ""
+    },
+    validationSchema: yup.object().shape({
+      Email: yup
+        .string()
+        .required("Email is required")
+        .email("Must be email"),
+      Name: yup.string().required("Name is required"),
+      Message: yup.string().required("Message is required")
+    })
+  });
   const onSubmit = (data: any) => {
     console.log(data);
     var templateParams = {
-      name: `${data.eName}`,
-      email: `${data.eEmail}`,
-      message: `${data.eMessage}`
+      name: `${data.Name}`,
+      email: `${data.Email}`,
+      message: `${data.Message}`
     };
     sendEmail(templateParams);
-
-    console.log(errors);
   };
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input
-        type="text"
-        placeholder="eName"
-        name="eName"
-        ref={register({ required: true, maxLength: 80 })}
-      />
-      <input
-        type="text"
-        placeholder="eEmail"
-        name="eEmail"
-        ref={register({ required: true, pattern: /^\S+@\S+$/i })}
-      />
-      <textarea
-        name="eMessage"
-        ref={register({ required: true, max: 200, min: 10 })}
-      />
-      <input type="submit" />
-    </form>
+    <div style={{ paddingTop: "1vh", width: "90vw", margin: "auto" }}>
+      <FormContext {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <TextField name="Name" placeholder="Name" />
+
+          <TextField name="Email" placeholder="Email" />
+
+          <TextField name="Message" type="text" placeholder="Message" />
+          <Button type="submit">Submit</Button>
+        </form>
+      </FormContext>
+    </div>
   );
 };
-
-// <form
-//   className={classes.root}
-//   onSubmit={sendEmail}
-//   noValidate
-//   autoComplete="off"
-// >
-//   <div>
-//     <div className={nameEmailStyle}>
-//       <TextField
-//         required
-//         id="standard-required"
-//         label="Required"
-//         defaultValue=""
-//         onChange={e => {
-//           console.log(eName);
-//           seteName(e.target.value);
-//         }}
-//       />
-
-//       <TextField
-//         required
-//         id="standard-required"
-//         type="email"
-//         label="Required"
-//         defaultValue=""
-//         onChange={e => {
-//           seteEmail(e.target.value);
-//         }}
-//       />
-//     </div>
-//     <TextField
-//       id="outlined-textarea"
-//       label="Multiline Placeholder"
-//       placeholder="Placeholder"
-//       multiline
-//       variant="outlined"
-//       onChange={e => {
-//         seteMessage(e.target.value);
-//       }}
-//     />
-//     <Button type="submit">Submit</Button>
-//   </div>
-// </form>
-
-// <form className="contact-form" onSubmit={sendEmail}>
-//   <label>Name</label>
-//   <input type="text" name="name" value="name" />
-//   <label>Email</label>
-//   <input type="email" name="email" value="email" />
-//   <label>Message</label>
-//   <textarea name="message" />
-//   <input type="submit" value="message" />
-// </form>

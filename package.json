@@ -22,7 +22,8 @@
     "react-hook-form": "^4.7.1",
     "react-scripts": "3.3.0",
     "react-use": "^13.21.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "yup": "^0.28.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "@types/yup": "^0.26.28",
     "eslint": "^6.8.0",
     "eslint-config-node": "^4.0.0",
     "eslint-config-prettier": "^6.9.0",

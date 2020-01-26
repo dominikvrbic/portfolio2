@@ -14,9 +14,9 @@ export const Footer = () => {
     display: flex;
     align-items: center;
     background-color: black;
-    height: 3vw;
+    height: 4vw;
     width: 100%;
-    font-size: ${sm || md ? "2.5vw" : "0.8vw"};
+    font-size: ${sm || md ? "3vw" : "0.8vw"};
     justify-content: center;
   `;
 
