@@ -3,15 +3,8 @@ import { css } from "emotion";
 import img from "../assets/img.jpg";
 import { Button } from "./Button";
 import { ButtonEnum } from "../types/enums";
-const projectStyle = css`
-  display: flex;
-  background-image: url(${img});
-  width: 25vw;
-  height: 25vh;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  color: white;
-`;
+import { useBreakpoint } from "../utils/UseWindowsSize";
+
 const hoverStyle = css`
   background-color: #273655;
   opacity: 80%;
@@ -44,6 +37,18 @@ interface IProjectProps {
 export const Project = (props: IProjectProps) => {
   const { repo } = props;
   const [hover, sethover] = useState(false);
+  const { sm, md } = useBreakpoint();
+
+  const projectStyle = css`
+    display: flex;
+    background-image: url(${img});
+    width: ${sm || md ? "100vw" : "25vw"};
+    height: 25vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: ${sm || md ? "4vw" : "1.2vw"};
+  `;
   const setOn = () => {
     sethover(true);
   };

@@ -1,21 +1,17 @@
 import React from "react";
 import { ButtonEnum } from "../types/enums";
-import { css } from "emotion";
+import { css, cx } from "emotion";
+import { useBreakpoint } from "../utils/UseWindowsSize";
+
 const buttonBlackStyle = css`
   border: 2px solid black;
   color: black;
-  border-radius: 1vh;
-  padding: 14px 28px;
-  cursor: pointer;
-  background-color: Transparent;
+  padding: 10px;
 `;
 const buttonWhiteStyle = css`
-  border: 2px solid white;
+  border: 3px solid white;
   color: white;
-  border-radius: 1vh;
-  padding: 14px 28px;
-  cursor: pointer;
-  background-color: transparent;
+  padding: 10px;
 `;
 interface IButtonProps {
   style: ButtonEnum;
@@ -23,10 +19,18 @@ interface IButtonProps {
 }
 export const Button = (props: IButtonProps) => {
   const { style, text } = props;
+  const { sm, md } = useBreakpoint();
+  const buttonStyle = css`
+    font-size: ${sm || md ? "4vw" : "1.2vw"};
+    cursor: pointer;
+    background-color: Transparent;
+  `;
   return (
     <button
       className={
-        style === ButtonEnum.BLACK ? buttonBlackStyle : buttonWhiteStyle
+        style === ButtonEnum.BLACK
+          ? cx(buttonBlackStyle, buttonStyle)
+          : cx(buttonWhiteStyle, buttonStyle)
       }
     >
       {text}

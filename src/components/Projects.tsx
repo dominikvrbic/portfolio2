@@ -1,14 +1,19 @@
 import React from "react";
 import { Project } from "./Project";
 import { css } from "emotion";
-const projectsStyle = css`
-  display: flex;
-  align-items: center;
-`;
+import { useBreakpoint } from "../utils/UseWindowsSize";
+
 interface IProjectsProps {
   userRepos: any;
 }
 export const Projects = (props: IProjectsProps) => {
+  const { sm, md } = useBreakpoint();
+  const projectsStyle = css`
+    display: flex;
+    align-items: center;
+    flex-direction: ${sm || md ? "column" : "row"};
+  `;
+
   const { userRepos } = props;
   return (
     <div className={projectsStyle}>
