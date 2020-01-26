@@ -10,11 +10,13 @@ const buttonsStyle = css`
   display: flex;
   width: 100%;
   justify-content: space-between;
+  padding-bottom: 3vh;
 `;
 const topStyle = css`
   display: flex;
   justify-content: flex-end;
   height: 90%;
+  padding-top: 3vh;
 `;
 const elementWidth = css`
   width: 50%;
@@ -35,9 +37,12 @@ export const Project = (props: IProjectProps) => {
     display: flex;
     background-image: url(${img});
     width: ${sm || md ? "100vw" : "45vw"};
-    height: 30vh;
+    height: 40vh;
     background-size: 100%;
     background-repeat: no-repeat;
+    background-position-x: 50%;
+    background-position-y: 50%;
+
     color: white;
     font-size: ${sm || md ? "4vw" : "1.2vw"};
   `;
@@ -46,8 +51,8 @@ export const Project = (props: IProjectProps) => {
     opacity: 80%;
     display: flex;
     flex-direction: column;
-    width: ${sm || md ? "100vw" : "40vw"};
-    height: 30vh;
+    width: ${sm || md ? "100vw" : "45vw"};
+    height: 40vh;
   `;
   const setOn = () => {
     sethover(true);

@@ -15,7 +15,7 @@ import postgresql from "../assets/postgresql.svg";
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 345
+    maxWidth: 500
   },
   media: {
     height: 140
