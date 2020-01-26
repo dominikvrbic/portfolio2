@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { css } from "emotion";
 import { EmailForm } from "./EmailForm";
 import Collapsible from "react-collapsible";
+import Typography from "@material-ui/core/Typography";
 
 const expandedStyle = css`
   background: #ffffff;
@@ -18,7 +19,9 @@ export const ContactMe = () => {
 
   return (
     <div>
-      <div>Contact me</div>
+      <Typography gutterBottom variant="h5" component="h2">
+        Some of the technologies I work with:
+      </Typography>
       <Collapsible
         transitionTime={250}
         openedClassName={expandedStyle}

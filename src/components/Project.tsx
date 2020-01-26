@@ -5,14 +5,6 @@ import { Button } from "./Button";
 import { ButtonEnum } from "../types/enums";
 import { useBreakpoint } from "../utils/UseWindowsSize";
 
-const hoverStyle = css`
-  background-color: #273655;
-  opacity: 80%;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 3vh;
-`;
 const buttonsStyle = css`
   align-self: flex-end;
   display: flex;
@@ -42,12 +34,20 @@ export const Project = (props: IProjectProps) => {
   const projectStyle = css`
     display: flex;
     background-image: url(${img});
-    width: ${sm || md ? "100vw" : "25vw"};
-    height: 25vh;
+    width: ${sm || md ? "100vw" : "45vw"};
+    height: 30vh;
     background-size: 100%;
     background-repeat: no-repeat;
     color: white;
     font-size: ${sm || md ? "4vw" : "1.2vw"};
+  `;
+  const hoverStyle = css`
+    background-color: #273655;
+    opacity: 80%;
+    display: flex;
+    flex-direction: column;
+    width: ${sm || md ? "100vw" : "40vw"};
+    height: 30vh;
   `;
   const setOn = () => {
     sethover(true);
