@@ -20,7 +20,7 @@ export const ContactMe = () => {
   return (
     <div>
       <Typography gutterBottom variant="h5" component="h2">
-        Some of the technologies I work with:
+        You can click down below to contact me.
       </Typography>
       <Collapsible
         transitionTime={250}

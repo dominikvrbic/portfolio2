@@ -10,13 +10,11 @@ const buttonsStyle = css`
   display: flex;
   width: 100%;
   justify-content: space-between;
-  padding-bottom: 3vh;
 `;
 const topStyle = css`
   display: flex;
   justify-content: flex-end;
   height: 90%;
-  padding-top: 3vh;
 `;
 const elementWidth = css`
   width: 50%;
@@ -42,7 +40,6 @@ export const Project = (props: IProjectProps) => {
     background-repeat: no-repeat;
     background-position-x: 50%;
     background-position-y: 50%;
-
     color: white;
     font-size: ${sm || md ? "4vw" : "1.2vw"};
   `;

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import TextField from "@material-ui/core/TextField";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -15,22 +16,23 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const EmailForm = () => {
+  const [eName, seteName] = useState("");
+  const [eEmail, seteEmail] = useState("");
+  const [eMessage, seteMessage] = useState("");
+
   let templateParams = {
-    name: "aa",
-    email: "",
-    message: ""
+    name: `${eName}`,
+    email: `${eEmail}`,
+    message: `${eMessage}`
   };
   const sendEmail = (e: any) => {
-    // templateParams.name =
-    // templateParams.email =
-    // templateParams.message =
     e.preventDefault();
     emailjs
       .send(
-        "gmail",
-        "template_bt2nNASD",
+        "default_service",
+        "contactform",
         templateParams,
-        "user_rI5uFl3P4Pr0bZYFH3fXW"
+        "user_GMHAo3Sd1v18QWdl3q3oT"
       )
       .then(
         (response: any) => {
@@ -44,21 +46,46 @@ export const EmailForm = () => {
   const classes = useStyles();
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
+    <form
+      className={classes.root}
+      onSubmit={sendEmail}
+      noValidate
+      autoComplete="off"
+    >
       <div>
         <TextField
-          error
-          id="outlined-error-helper-textr"
-          label="Error"
-          defaultValue="Hello World"
+          required
+          id="standard-required"
+          label="Required"
+          defaultValue=""
+          onChange={e => {
+            console.log(eName);
+            seteName(e.target.value);
+          }}
         />
+
         <TextField
-          error
-          id="outlined-error-helper-text"
-          label="Error"
-          defaultValue="Hello World"
-          helperText="Incorrect entry."
+          required
+          id="standard-required"
+          type="email"
+          label="Required"
+          defaultValue=""
+          onChange={e => {
+            seteEmail(e.target.value);
+          }}
         />
+
+        <TextField
+          id="outlined-textarea"
+          label="Multiline Placeholder"
+          placeholder="Placeholder"
+          multiline
+          variant="outlined"
+          onChange={e => {
+            seteMessage(e.target.value);
+          }}
+        />
+        <Button type="submit">Submit</Button>
       </div>
     </form>
   );
