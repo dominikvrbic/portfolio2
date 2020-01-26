@@ -24,10 +24,15 @@ const buttonsStyle = css`
   align-self: flex-end;
   display: flex;
   width: 100%;
+  justify-content: space-between;
 `;
 const topStyle = css`
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
+  height: 90%;
+`;
+const elementWidth = css`
+  width: 50%;
 `;
 interface IProjectProps {
   repo: any;
@@ -46,7 +51,7 @@ export const Project = (props: IProjectProps) => {
       {hover && (
         <div className={hoverStyle}>
           <div className={topStyle}>
-            <div>{repo.name}</div>
+            <div className={elementWidth}>{repo.name}</div>
             <div>{repo.description}</div>
           </div>
           <div className={buttonsStyle}>
