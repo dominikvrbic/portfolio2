@@ -18,7 +18,6 @@ export const LandingPage = (props: ILandingPage) => {
   return (
     <>
       <Header />
-      <Button style={ButtonEnum.WHITE} text={"srbi"} />
       <Projects userRepos={userRepos} />
       <AboutMe user={user} />
       <ContactMe />
