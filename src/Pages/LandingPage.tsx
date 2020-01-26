@@ -5,6 +5,7 @@ import { AboutMe } from "../components/AboutMe";
 import { ContactMe } from "../components/ContactMe";
 
 import { Footer } from "../components/Footer";
+import { Technologies } from "../components/Technologies";
 
 interface ILandingPage {
   user: any;
@@ -17,6 +18,7 @@ export const LandingPage = (props: ILandingPage) => {
   return (
     <>
       <Header />
+      <Technologies />
       <Projects userRepos={userRepos} />
       <AboutMe user={user} />
       <ContactMe />

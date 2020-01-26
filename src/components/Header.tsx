@@ -25,13 +25,13 @@ export const Header = () => {
   const { sm, md, lg, xl } = useBreakpoint();
   const nameStyle = css`
     font-size: ${lg ? "64px" : xl ? "86px" : "6vw"};
-
     max-width: 90vw;
   `;
   const paragraphStyle = css`
     padding-top: 2vh;
     font-size: ${xl ? "48px" : "4vw"};
     max-width: 90vw;
+    padding-bottom: 8vh;
   `;
   return (
     <div
