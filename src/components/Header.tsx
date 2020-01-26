@@ -24,7 +24,8 @@ const textStyle = css`
 export const Header = () => {
   const { sm, md, lg, xl } = useBreakpoint();
   const nameStyle = css`
-    font-size: ${xl || lg ? "86px" : "6vw"};
+    font-size: ${lg ? "64px" : xl ? "86px" : "6vw"};
+
     max-width: 90vw;
   `;
   const paragraphStyle = css`
