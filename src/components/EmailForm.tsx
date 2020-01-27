@@ -43,7 +43,7 @@ export const EmailForm = () => {
   });
   const onSubmit = (data: any) => {
     console.log(data);
-    var templateParams = {
+    let templateParams = {
       name: `${data.Name}`,
       email: `${data.Email}`,
       message: `${data.Message}`
