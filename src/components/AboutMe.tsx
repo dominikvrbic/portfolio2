@@ -22,7 +22,7 @@ export const AboutMe = (props: IAboutMe) => {
     width: 90vw;
     display: flex;
     margin: auto;
-    font-size: ${sm || md ? "5vw" : "1.2vw"};
+    font-size: ${sm || md ? "5vw" : "1.5vw"};
     flex-direction: ${sm || md ? "column" : "row"};
     color: 1e1e26;
   `;

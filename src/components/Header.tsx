@@ -19,13 +19,13 @@ export const Header = () => {
   const nameStyle = css`
     font-size: ${lg ? "64px" : xl ? "86px" : "6vw"};
     max-width: 90vw;
-    margin-top: ${xl ? "16vh" : "2vh"};
+    margin-top: ${xl ? "18vh" : "2vh"};
   `;
   const headerStyle = css`
     background-size: 100%;
     min-height: 30vh;
     background-repeat: no-repeat;
-    margin-top: ${xl ? "-14vh" : 0};
+    margin-top: ${xl ? "-16vh" : 0};
     width: 100%;
   `;
   const paragraphStyle = css`
@@ -37,11 +37,11 @@ export const Header = () => {
   return (
     <div className={headerStyle} style={{ backgroundImage: `url(${img})` }}>
       <div className={textStyle}>
-        <div className={nameStyle}>DOMINIK VRBIC</div>
-        <div className={paragraphStyle}>
+        <h1 className={nameStyle}>DOMINIK VRBIC</h1>
+        <h2 className={paragraphStyle}>
           I am a full stack javascript developer focused on staying up to date
           so I can provide the best user experience to my customers
-        </div>
+        </h2>
       </div>
     </div>
   );

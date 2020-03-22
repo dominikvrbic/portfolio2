@@ -16,7 +16,7 @@ export const Footer = () => {
     background-color: black;
     height: 4vw;
     width: 100%;
-    font-size: ${sm || md ? "3vw" : "0.8vw"};
+    font-size: ${sm || md ? "3vw" : "1.2vw"};
     justify-content: center;
   `;
 

@@ -5,6 +5,7 @@ import { useForm, FormContext } from "react-hook-form";
 import * as yup from "yup";
 import { Button } from "./Button";
 import { ButtonEnum } from "../types/enums";
+import { css } from "emotion";
 
 const sendEmail = (templateParams: any) => {
   emailjs
@@ -23,6 +24,9 @@ const sendEmail = (templateParams: any) => {
       }
     );
 };
+const title = css`
+  font-size: "5vw";
+`;
 
 export const EmailForm = () => {
   const form = useForm({
@@ -60,7 +64,7 @@ export const EmailForm = () => {
         paddingBottom: "1vh"
       }}
     >
-      <h2>What can I help you with?</h2>
+      <h1 className={title}>What can I help you with?</h1>
       <FormContext {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <TextField name="Name" placeholder="Name" />
