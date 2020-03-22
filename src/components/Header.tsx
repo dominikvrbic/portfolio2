@@ -1,6 +1,5 @@
 import React from "react";
 import { css } from "emotion";
-import img1 from "../assets/header1.jpg";
 import img from "../assets/header.jpg";
 
 import { useBreakpoint } from "../utils/UseWindowsSize";
@@ -22,7 +21,7 @@ const textStyle = css`
 `;
 
 export const Header = () => {
-  const { sm, md, lg, xl } = useBreakpoint();
+  const { lg, xl } = useBreakpoint();
   const nameStyle = css`
     font-size: ${lg ? "64px" : xl ? "86px" : "6vw"};
     max-width: 90vw;
@@ -34,10 +33,7 @@ export const Header = () => {
     padding-bottom: 8vh;
   `;
   return (
-    <div
-      className={headerStyle}
-      style={{ backgroundImage: `url(${sm || md ? img : img1})` }}
-    >
+    <div className={headerStyle} style={{ backgroundImage: `url(${img})` }}>
       <div className={textStyle}>
         <div className={nameStyle}>DOMINIK VRBIC</div>
         <div className={paragraphStyle}>
