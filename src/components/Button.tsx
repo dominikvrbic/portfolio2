@@ -14,7 +14,7 @@ const buttonWhiteStyle = css`
   padding: 10px;
 `;
 interface IButtonProps {
-  style: ButtonEnum;
+  style?: ButtonEnum;
   text: string;
 }
 export const Button = (props: IButtonProps) => {

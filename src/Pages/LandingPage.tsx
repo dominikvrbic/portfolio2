@@ -2,10 +2,10 @@ import React from "react";
 import { Header } from "../components/Header";
 import { Projects } from "./../components/Projects";
 import { AboutMe } from "../components/AboutMe";
-import { ContactMe } from "../components/ContactMe";
 
 import { Footer } from "../components/Footer";
 import { Technologies } from "../components/Technologies";
+import { EmailForm } from "../components/EmailForm";
 
 interface ILandingPage {
   user: any;
@@ -20,7 +20,7 @@ export const LandingPage = (props: ILandingPage) => {
       <Technologies />
       <Projects userRepos={userRepos} />
       <AboutMe user={user} />
-      <ContactMe />
+      <EmailForm />
       <Footer />
     </>
   );

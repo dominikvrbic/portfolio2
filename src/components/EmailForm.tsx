@@ -1,9 +1,10 @@
 import React from "react";
 import emailjs from "emailjs-com";
 import { TextField } from "../components/TextField";
-import { Button } from "@material-ui/core";
 import { useForm, FormContext } from "react-hook-form";
 import * as yup from "yup";
+import { Button } from "./Button";
+import { ButtonEnum } from "../types/enums";
 
 const sendEmail = (templateParams: any) => {
   emailjs
@@ -51,15 +52,21 @@ export const EmailForm = () => {
     sendEmail(templateParams);
   };
   return (
-    <div style={{ paddingTop: "1vh", width: "90vw", margin: "auto" }}>
+    <div
+      style={{
+        paddingTop: "1vh",
+        width: "90vw",
+        margin: "auto",
+        paddingBottom: "1vh"
+      }}
+    >
+      <h2>What can I help you with?</h2>
       <FormContext {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <TextField name="Name" placeholder="Name" />
-
           <TextField name="Email" placeholder="Email" />
-
           <TextField name="Message" type="text" placeholder="Message" />
-          <Button type="submit">Submit</Button>
+          <Button text={"Submite"} style={ButtonEnum.BLACK} />
         </form>
       </FormContext>
     </div>
