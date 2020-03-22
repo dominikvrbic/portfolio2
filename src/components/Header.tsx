@@ -19,16 +19,17 @@ export const Header = () => {
   const nameStyle = css`
     font-size: ${lg ? "64px" : xl ? "86px" : "6vw"};
     max-width: 90vw;
+    margin-top: ${xl ? "16vh" : "2vh"};
   `;
   const headerStyle = css`
     background-size: 100%;
     min-height: 30vh;
     background-repeat: no-repeat;
-    margin-top: ${xl ? "-2vh" : 0};
+    margin-top: ${xl ? "-14vh" : 0};
     width: 100%;
   `;
   const paragraphStyle = css`
-    padding-top: 4vh;
+    padding-top: 2vh;
     font-size: ${xl ? "48px" : "4vw"};
     max-width: 90vw;
     padding-bottom: 8vh;
